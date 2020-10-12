@@ -1,0 +1,31 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ subject.name }}{% endblock %}
+
+{% block subject %}
+<a href="/" class="btn btn-primary btn-sm">Назад</a>
+<a href="{% url 'SubjectView' subject.slug %}" class="list-group-item list-group-item-action bg-light">{{ subject.name }}</a>
+{% endblock %}
+
+
+{% block content %}
+    <div class="container-fluid">
+        <h1>Лекции</h1>
+        {% if lectures %}
+            {% for el in lectures %}
+                <div class="alert alert-dark" role="alert">
+                    <h3>{{ el.title }}</h3>
+                    <p>{{ el.date }}</p>
+                    <a href="{% url 'lectures-detail' el.id %}" class="btn btn-dark">Читать детальнее</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Нет лекции, можете добавить сами!</p>
+        {% endif %}
+
+        <a href="{% url 'create' %}"><button class="btn btn-info">Добавить лекцию</button></a>
+   </div>
+
+{% endblock %}
+
+

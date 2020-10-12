@@ -1,0 +1,26 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ lectures.title }}{% endblock %}
+
+{% block subject %}
+<a href="#" onclick="history.back();" class="btn btn-primary btn-sm">Назад</a>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <h1 align="center">{{ lectures.title }}</h1>
+        {% if lectures.video %}
+        <iframe src="{{ lectures.video }}" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+        {% endif %}
+        {% if lectures.text %}
+        <p>{{ lectures.text }}</p>
+        {% endif %}
+        {% if lectures.file %}
+        <a href="/media/{{ lectures.file }}" class="btn btn-warning" target="_blank">Скачать файл</a>
+        {% endif %}
+        <p align="right">{{ lectures.date }}</p>
+        <a href="{% url 'lectures-delete' lectures.id %}" class="btn btn-danger">Удалить</a>
+        <a href="{% url 'lectures-update' lectures.id %}" class="btn btn-info">Редактировать</a>
+   </div>
+
+{% endblock %}

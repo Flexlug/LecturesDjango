@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Удаление сатьи{% endblock %}
+
+{% block subject %}
+<a href="#" onclick="history.back();" class="btn btn-primary btn-sm">Назад</a>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <h1>Форма по добавлению статьи</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-success" type="submit">Удалить статью</button>
+        </form>
+   </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Редактирование лекции{% endblock %}
+{% block subject %}
+<a href="#" onclick="history.back();" class="btn btn-primary btn-sm">Назад</a>
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <h1>Форма по редактированию лекции</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.subject }}<br><br>
+            {{ form.title }}<br>
+            {{ form.video }}<br>
+            {{ form.text }}<br>
+            <input type="file" placeholder="Файл лекции" class="form-contro"><br><br>
+            {{ form.date }}<br>
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Сохранить</button>
+        </form>
+   </div>
+{% endblock %}
