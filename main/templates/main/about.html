@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Создатели {% endblock %}
+
+{% block subject %}
+    {% if subject %}
+        {% for el in subject %}
+            <a href="{% url 'SubjectView' el.slug %}" class="list-group-item list-group-item-action bg-light">{{ el.name }}</a>
+        {% endfor %}
+    {% else %}
+        <p>Лекции</p>
+    {% endif %}
+    <br> <a href="{% url 'creates' %}" align="center"><button class="btn btn-info"><i class="fas fa-plus-circle"></i> Добавить предмет</button></a>
+{% endblock %}
+
+{% block content %}
+   <div class="container-fluid">
+    <h1></h1>
+    <p>Мартынов А.Д. студент ФОИСТ ИБ</p>
+   </div>
+{% endblock %}

@@ -9,6 +9,10 @@ def index(request):
     subject = Subject.objects.order_by('-name')
     return render(request, 'main/index.html', {'subject': subject})
 
+def index(request):
+    subject = Subject.objects.order_by('-name')
+    return render(request, 'main/about.html', {'subject': subject})
+
 
 def subject_list(request, subject_slug=None):
     subject = None
